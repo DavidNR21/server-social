@@ -2,14 +2,20 @@ package com.cloud.Enterprise.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -45,7 +51,15 @@ public class Usuario implements Serializable {
 	private Date editedAt;
 	private Date deletedAt;
 	private String rule;
-	
+
+	@JsonIgnore
+    @OneToMany(mappedBy = "seguidor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Seguidores> seguindo = new HashSet<>();
+    
+    // Relacionamento com a tabela de seguidores (quem segue este usuário)
+	@JsonIgnore
+    @OneToMany(mappedBy = "seguido", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Seguidores> seguidores = new HashSet<>();
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -267,11 +281,9 @@ public class Usuario implements Serializable {
 	}
 
 
-
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
 
 
 	public Date getEditedAt() {
@@ -279,11 +291,9 @@ public class Usuario implements Serializable {
 	}
 
 
-
 	public void setEditedAt(Date editedAt) {
 		this.editedAt = editedAt;
 	}
-
 
 
 	public Date getDeletedAt() {
@@ -295,8 +305,27 @@ public class Usuario implements Serializable {
 	public void setDeletedAt(Date deletedAt) {
 		this.deletedAt = deletedAt;
 	}
-	
-	
+
+
+
+	public Set<Seguidores> getSeguidores() {
+		return seguidores;
+	}
+
+
+	public void setSeguidores(Set<Seguidores> seguidores) {
+		this.seguidores = seguidores;
+	}
+
+
+	public Set<Seguidores> getSeguindo() {
+		return seguindo;
+	}
+
+
+	public void setSeguindo(Set<Seguidores> seguindo) {
+		this.seguindo = seguindo;
+	}
 	
 	
 

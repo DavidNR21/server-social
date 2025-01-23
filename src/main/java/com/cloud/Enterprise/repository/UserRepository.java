@@ -1,5 +1,6 @@
 package com.cloud.Enterprise.repository;
 
+
 import java.util.Optional;
 import java.util.UUID;
 
@@ -12,4 +13,5 @@ import com.cloud.Enterprise.model.Usuario;
 public interface UserRepository extends JpaRepository<Usuario, UUID> {
 	// Busca um usuário por e-mail e status ativo
     Optional<Usuario> findByEmailAndActiveTrue(String email);
+    Optional<Usuario> findByIdAndActiveTrue(UUID id);
 }
