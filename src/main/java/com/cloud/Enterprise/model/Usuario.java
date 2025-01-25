@@ -62,6 +62,32 @@ public class Usuario implements Serializable {
     private Set<Seguidores> seguidores = new HashSet<>();
 	
 	
+	// posts do usuario
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Post> posts = new HashSet<>();
+	
+	
+	@JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Salvos> salvos = new HashSet<>();
+	
+	@JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<PostLike> likes = new HashSet<>();
+	
+	
+	@JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Comentarios> comentarios = new HashSet<>();
+	
+	
+	@JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<LikesComentarios> likesComentarios = new HashSet<>();
+	
+	
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 	
@@ -325,6 +351,56 @@ public class Usuario implements Serializable {
 
 	public void setSeguindo(Set<Seguidores> seguindo) {
 		this.seguindo = seguindo;
+	}
+
+
+	public Set<Post> getPosts() {
+		return posts;
+	}
+
+
+	public void setPosts(Set<Post> posts) {
+		this.posts = posts;
+	}
+
+
+	public Set<Salvos> getSalvos() {
+		return salvos;
+	}
+
+
+	public void setSalvos(Set<Salvos> salvos) {
+		this.salvos = salvos;
+	}
+
+
+	public Set<PostLike> getLikes() {
+		return likes;
+	}
+
+
+	public void setLikes(Set<PostLike> likes) {
+		this.likes = likes;
+	}
+
+
+	public Set<Comentarios> getComentarios() {
+		return comentarios;
+	}
+
+
+	public void setComentarios(Set<Comentarios> comentarios) {
+		this.comentarios = comentarios;
+	}
+
+
+	public Set<LikesComentarios> getLikesComentarios() {
+		return likesComentarios;
+	}
+
+
+	public void setLikesComentarios(Set<LikesComentarios> likesComentarios) {
+		this.likesComentarios = likesComentarios;
 	}
 	
 	
