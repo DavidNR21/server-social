@@ -12,6 +12,7 @@ public class PostRequestDTO {
     private String rule;
     private String type;
     private UUID userId; // ID do usuário que está criando o post
+    private UUID comunidadeId;
     
     
 	public String getContent() {
@@ -53,5 +54,16 @@ public class PostRequestDTO {
 	public void setUserId(UUID userId) {
 		this.userId = userId;
 	}
+
+	public UUID getComunidadeId() {
+		return comunidadeId;
+	}
+
+	public void setComunidadeId(UUID comunidadeId) {
+		this.comunidadeId = comunidadeId;
+	}
     
+	
+	
+	
 }

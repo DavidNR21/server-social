@@ -16,4 +16,7 @@ public interface PostRepository extends JpaRepository<Post, UUID> {
 
 	@Query("SELECT p FROM Post p JOIN FETCH p.usuario u WHERE u.id = :usuarioId")
 	List<Post> findPostsByUsuarioId(@Param("usuarioId") UUID usuarioId);
+	
+	// Buscar todos os posts de uma comunidade específica
+    List<Post> findByComunidadeId(UUID comunidadeId);
 }

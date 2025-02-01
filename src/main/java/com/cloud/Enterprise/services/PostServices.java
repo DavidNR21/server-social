@@ -65,6 +65,7 @@ public class PostServices {
         post.setRule(dto.getRule());
         post.setType(dto.getType());
         post.setUsuario(usuario);
+        post.setComunidadeId(dto.getComunidadeId());
 
         Post postSalvo = postRepo.save(post);
 

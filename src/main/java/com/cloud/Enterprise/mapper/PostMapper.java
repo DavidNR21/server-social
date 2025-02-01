@@ -32,7 +32,8 @@ public class PostMapper {
                 post.getNumberComentarios(),
                 post.getCreatedAt(),
                 post.getActive(),
-                usuarioResumo
+                usuarioResumo,
+                post.getComunidadeId()
         );
     }
 

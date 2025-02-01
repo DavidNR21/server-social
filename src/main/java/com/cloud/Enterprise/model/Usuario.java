@@ -87,6 +87,10 @@ public class Usuario implements Serializable {
     private Set<LikesComentarios> likesComentarios = new HashSet<>();
 	
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Membro> comunidades = new HashSet<>();
+	
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
@@ -402,6 +406,17 @@ public class Usuario implements Serializable {
 	public void setLikesComentarios(Set<LikesComentarios> likesComentarios) {
 		this.likesComentarios = likesComentarios;
 	}
+
+
+	public Set<Membro> getComunidades() {
+		return comunidades;
+	}
+
+
+	public void setComunidades(Set<Membro> comunidades) {
+		this.comunidades = comunidades;
+	}
+	
 	
 	
 

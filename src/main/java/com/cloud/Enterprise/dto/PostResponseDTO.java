@@ -19,9 +19,10 @@ public class PostResponseDTO {
     private Date createdAt;
     private UserPostDTO usuario; // Dados resumidos do usuário
     private Boolean active;
+    private UUID comunidadeId;
     
     
-	public PostResponseDTO(UUID id, String content, Long likes, Long views, List<String> media, String rule, String type, Long share, Long saves, Long numberComentarios, Date createdAt, Boolean active, UserPostDTO usuario) {
+	public PostResponseDTO(UUID id, String content, Long likes, Long views, List<String> media, String rule, String type, Long share, Long saves, Long numberComentarios, Date createdAt, Boolean active, UserPostDTO usuario, UUID comunidadeId) {
 		this.id = id;
 		this.content = content;
 		this.likes = likes;
@@ -35,6 +36,7 @@ public class PostResponseDTO {
 		this.createdAt = createdAt;
 		this.active = active;
 		this.usuario = usuario;
+		this.comunidadeId = comunidadeId;
 	}
 
 
@@ -165,6 +167,16 @@ public class PostResponseDTO {
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+
+	public UUID getComunidadeId() {
+		return comunidadeId;
+	}
+
+
+	public void setComunidadeId(UUID comunidadeId) {
+		this.comunidadeId = comunidadeId;
 	}
     
     

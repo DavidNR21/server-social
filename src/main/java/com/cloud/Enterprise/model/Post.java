@@ -51,6 +51,7 @@ public class Post implements Serializable {
 	private Long share = 0L;
 	private Long saves = 0L;
 	private Long numberComentarios = 0L;
+	private UUID comunidadeId;
 	
 	
 	// ha quem pertence o post
@@ -244,8 +245,16 @@ public class Post implements Serializable {
 	public void setComnetario(Set<Comentarios> comnetario) {
 		this.comnetario = comnetario;
 	}
-	
-	
+
+
+	public UUID getComunidadeId() {
+		return comunidadeId;
+	}
+
+
+	public void setComunidadeId(UUID comunidadeId) {
+		this.comunidadeId = comunidadeId;
+	}
 	
 
 }
